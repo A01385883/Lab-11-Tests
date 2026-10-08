@@ -28,7 +28,7 @@ android {
         targetSdk = 37
         versionCode = 1
         versionName = "1.0"
-
+        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         buildConfigField("String", "API_URL", "\"$apiUrl\"")
     }
 
@@ -83,4 +83,9 @@ dependencies {
     // Pruebas locales (src/test): corren en la JVM de tu computadora, sin emulador.
     testImplementation(libs.junit)
     debugImplementation(libs.androidx.ui.tooling)
+
+    // Pruebas instrumentadas (src/androidTest): corren en el emulador, con Android de verdad.
+    androidTestImplementation(libs.androidx.test.ext.junit)
+    androidTestImplementation(libs.androidx.test.runner)
+    androidTestImplementation(libs.kotlinx.coroutines.test)
 }
